@@ -1,0 +1,14 @@
+services:
+  flowtron:
+    build:
+      context: .
+    ports:
+      - 8898:8888
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
